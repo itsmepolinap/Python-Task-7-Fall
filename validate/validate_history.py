@@ -24,7 +24,7 @@ def validate_city_number(number: str, weather_data: List[Dict]) -> int:
 
     number = int(number)
 
-    if number not in range(1, _DATA_LEN):
+    if number not in range(1, _DATA_LEN + 1):
         raise ValueError(f'Введите значение от 1 до {_DATA_LEN}')
 
-    return number
+    return number - 1

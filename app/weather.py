@@ -118,7 +118,7 @@ class WeatherApp:
             print(err.args[0])
             return self._view_history()
 
-        print_weather_data(weather_list[city_number - 1])
+        print_weather_data(weather_list[city_number])
 
     def _exit_app(self):
         """

@@ -1,3 +1,4 @@
 .idea
 .venv
 .database/weather_request.db
+__pycache__/

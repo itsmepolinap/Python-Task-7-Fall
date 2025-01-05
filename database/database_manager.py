@@ -87,7 +87,7 @@ class DatabaseManager:
         except sqlite3.Error as e:
             print(f"Ошибка вставки данных в SQLite: {e}")
 
-    def select_weather_requests(self):
+    def select_weather_requests(self, amount: int):
         """
         Получает последние 5 записей из таблицы `weather_requests`.
 
@@ -98,12 +98,11 @@ class DatabaseManager:
 
         try:
             cursor.execute(
-                """
-                SELECT id, created_at, query_type, query_data, response_data
-                FROM weather_requests
-                ORDER BY created_at DESC
-                LIMIT 5
-                """
+                
+                "SELECT id, created_at, query_type, query_data, response_data "
+                "FROM weather_requests "
+                "ORDER BY created_at DESC "
+                f"LIMIT {amount}"
             )
             rows = cursor.fetchall()
 

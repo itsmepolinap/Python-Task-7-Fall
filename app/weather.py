@@ -106,8 +106,17 @@ class WeatherApp:
         """
         Отображает историю последних запросов.
         """
+        request_amount = input('Введите количество запросов, которое хотите отобразить:')
+
+        if not request_amount.isdigit() and request_amount != '0':
+            print('Введите числовое значение больше нуля.')
+            return self._view_history()
+        request_amount = int(request_amount)
+
+
+
         with self._db as db:
-            weather_list = db.select_weather_requests()
+            weather_list = db.select_weather_requests(request_amount)
 
         print_city_requests(weather_list)
         city_number = input('Введите номер города, в котором хотите просмотреть погоду: ')
